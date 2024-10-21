@@ -23,7 +23,7 @@ def main():
         sys.exit(1)
 
     # Run the command and get the output of all GPUs in the system
-    output = subprocess.check_output("nvidia-smi pci -i 0", shell=True).decode()
+    output = subprocess.check_output("nvidia-smi -L", shell=True).decode()
 
     # Use regular expressions to parse the output
     matches = re.findall(r"GPU (\d+): ([\w\s]+) \(UUID: (GPU-[a-z0-9-]+)\)", output)
