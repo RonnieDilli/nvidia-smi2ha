@@ -26,7 +26,7 @@ def main():
     output = subprocess.check_output("nvidia-smi pci -i 0", shell=True).decode()
 
     # Use regular expressions to parse the output
-    matches = re.findall(r"GPU (\d+): (\w+ \w+) \(UUID: (GPU-[a-z0-9-]+)\)", output)
+    matches = re.findall(r"GPU (\d+): ([\w\s]+) \(UUID: (GPU-[a-z0-9-]+)\)", output)
 
     gpu_info = {}
 
